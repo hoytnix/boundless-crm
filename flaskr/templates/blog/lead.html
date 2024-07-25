@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1>{% block title %}{{ lead.owner_1_first_name }} {{ lead.owner_1_last_name }} & {{ lead.owner_2_first_name }} {{ lead.owner_2_last_name }}{% endblock %}</h1>
+  <h1 class="mb-4">{% block title %}<a href="{{ url_for('blog.leads_index') }}">Leads</a> » {{ lead.owner_1_first_name }} {{ lead.owner_1_last_name }}{% if lead.owner_2_first_name %} & {{ lead.owner_2_first_name }} {{ lead.owner_2_last_name }}{% endif %}{% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
@@ -28,45 +28,67 @@
       "Market Value","Market Land Value","Market Improvement Value",
       "Status","Default Amount","Opening bid","Recording Date",
       "Auction Date" -->
-  <div class="card text-white bg-success mb-3" style="max-width: 20rem;">
-    <div class="card-header">{{ lead.address }}, {{ lead.city }}, {{ lead.county}}, {{ lead.zip }}</div>
+
+
+<div class="row">
+  <div class="col-sm">
+    <div class="card text-white bg-success mb-3" style="max-width: 45vw;">
+      <div class="card-header">{{ lead.address }}, {{ lead.city }}, {{ lead.county}}, {{ lead.zip }}</div>
       <div class="card-body">
         <h4 class="card-title">{{ lead.living_square_feet }}ft²</h4>
         <p class="card-text">
-          <ul>
-            <li>APN: {{ lead.apn }}</li>
-            <li>Year Built: {{ lead.year_built }}</li>
-            <li>Bedrooms: {{ lead.bedrooms }}</li>
-            <li>Bathrooms: {{ lead.bathrooms }}</li>
-            <li>Stories: {{ lead.stories }}</li>
-            <li>Garage: {{ lead.garage_type }}</li>
-            <li>Garage Ft²: {{ lead.garage_square_feet }}</li>
-            <li>Air Conditioning: {{ lead.air_conditioning_type }}</li>
-            <li>Heating: {{ lead.heating_type }}</li>
-            <li>Fireplaces: {{ lead.fireplaces }}</li>
-          </ul>
+        <ul>
+          <li>APN: {{ lead.apn }}</li>
+          <li>Year Built: {{ lead.year_built }}</li>
+          <li>Months Owned: {{ lead.ownership_length_months }}</li>
+          <li>Bedrooms: {{ lead.bedrooms }}</li>
+          <li>Bathrooms: {{ lead.bathrooms }}</li>
+          <li>Stories: {{ lead.stories }}</li>
+          <li>Garage: {{ lead.garage_type }}</li>
+          <li>Garage Ft²: {{ lead.garage_square_feet }}</li>
+          <li>Air Conditioning: {{ lead.air_conditioning_type }}</li>
+          <li>Heating: {{ lead.heating_type }}</li>
+          <li>Fireplaces: {{ lead.fireplaces }}</li>
+        </ul>
         </p>
       </div>
+    </div>
   </div>
-
-  <div class="card text-white bg-success mb-3" style="max-width: 20rem;">
-    <div class="card-header">Price Details</div>
+  <div class="col-sm">
+    <div class="card text-white bg-success mb-3" style="max-width: 45vw;">
+      <div class="card-header">Price Details</div>
       <div class="card-body">
-        <h4 class="card-title">${{ lead.listing_price }} LISTING PRICE</h4>
+        <h4 class="card-title">${{ lead.listing_price }}</h4>
         <p class="card-text">
-          <ul>
-            <li>Last Sold: ${{ lead.last_sale_amount }}</li>
-            <li>Estimated Value: ${{ lead.estimated_value }}</li>
-            <li>State-Equalized Value: ${{ lead.assessed_total_value }}</li>
-            <li>Market Value: ${{ lead.market_value }}</li>
-            <li>Estimated Equity: {{ lead.estimated_equity }} ({{ lead.equity_percent }}%)</li>
-            <li>Assessed Improvement Value: ${{ lead.assessed_improvement_value }}</li>
-            <li>Market Improvement Value: ${{ lead.market_improvement_value }}</li>
-            <li>Assessed Land Value: ${{ lead.assessed_land_value }}</li>
-            <li>Market Land Value: ${{ lead.market_land_value }}</li>
-          </ul>
+        <ul>
+          <li>Last Sold: ${{ lead.last_sale_amount }}</li>
+          <li>Estimated Value: ${{ lead.estimated_value }}</li>
+          <li>State-Equalized Value: ${{ lead.assessed_total_value }}</li>
+          <li>Market Value: ${{ lead.market_value }}</li>
+          <li>Estimated Equity: {{ lead.estimated_equity }} ({{ lead.equity_percent }}%)</li>
+          <li>Assessed Improvement Value: ${{ lead.assessed_improvement_value }}</li>
+          <li>Market Improvement Value: ${{ lead.market_improvement_value }}</li>
+          <li>Assessed Land Value: ${{ lead.assessed_land_value }}</li>
+          <li>Market Land Value: ${{ lead.market_land_value }}</li>
+        </ul>
         </p>
       </div>
+    </div>
   </div>
-
+</div>
+<div class="row">
+  <div class="col-sm">
+    <div class="card text-white bg-success mb-3" style="max-width: 45vw;">
+      <div class="card-header">Owner Contact</div>
+      <div class="card-body">
+        <h4 class="card-title"></h4>
+        <p class="card-text">
+        <ul>
+          <li>Mailing Address: {{ lead.owner_mailing_address }}, {{ lead.owner_mailing_city }}, {{ lead.owner_mailing_zip }}</li>
+        </ul>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
