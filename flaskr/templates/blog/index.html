@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}{% if g.user %}Welcome to Boundless CRM, {{ g.user['username'] }}!{% else %}Hello, World!{% endif %}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  {% if g.user %}
+    <h2>Coming Soon~</h2>
+    <p>Soon you'll be able to do things like:</p>
+    <h3>Lead Management</h3>
+    <ul>
+      <li><a href="#">Import a CSV List of Leads</a></li>
+      <ul>
+        <li>✓ Command-line interface</li>
+        <li>Web interface</li>
+      </ul>
+      <li><a href="#">Sort & Filter Leads</a></li>
+      <ul>
+        <li><a href="{{ url_for('blog.leads_index') }}">✓ View All Leads</a></li>
+        <li>Sort by column</li>
+        <li>Search filters</li>
+      </ul>
+      <li><a href="#">View A Timeline of Activities</a></li>
+      <ul>
+        <li>Recent direct messages</li>
+        <li>Recent engagements</li>
+      </ul>
+      <li><a href="#">Award Gift Cards</a></li>
+      <ul>
+        <li>Automatically award gifts to customers who reach a certain step.</li>
+        <li>Award gifts individually.</li>
+      </ul> 
+      <li><a href="#">Bi-Directional Messaging</a></li>
+      <ul>
+        <li>Email</li>
+        <li>MMS</li>
+      </ul>
+      <li><a href="#">Skip-Tracing</a></li>
+      <ul>
+        <li>Has customer changed their phone number recently?</li>
+        <li>Has customer changed their mailing address w/ USPS recently?</li>
+      </ul> 
+      <li><a href="#">Make Phone Calls</a></li>
+      <ul>
+        <li>Recordings</li>
+        <li>Transcripts</li>
+        <li>Sentiment Analysis</li>
+      </ul>
+    </ul>
+    <h3>Mass Communicate</h3>
+    <ul>
+      <li><a href="#">Send Email Campaigns</a></li>
+      <ul>
+        <li>Track Open Rates...</li>
+        <li>Even With Tracking Disabled!</li>
+      </ul>
+      <li><a href="#">Mass MMS Messages</a></li>
+      <ul>
+        <li>Initiate a sequence of messages upon receiving an Opt-In code.</li>
+        <li>Customer can chat w/ an AI while waiting.</li>
+        <li>Send message to all, or select customer.s</li>
+      </ul>
+      <li><a href="#">EDDM Campaigns</a></li>
+      <ul>
+        <li>Track QR Code Open Rates...</li>
+      </ul>
+    </ul>
+  {% else %}
+    <p>You must <a href="{{ url_for('auth.register') }}">Register</a> in order to use <a href="{{ url_for('blog.index') }}">Boundless CRM</a>.</p>
+  {% endif %}
+{% endblock %}

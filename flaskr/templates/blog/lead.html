@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}{{ lead.owner_1_first_name }} {{ lead.owner_1_last_name }} & {{ lead.owner_2_first_name }} {{ lead.owner_2_last_name }}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+
+  <!-- "Address","City","State","Zip","County","Living Square Feet","Year Built","Lot (Acres)","Lot (Square Feet)","Land Use","Subdivision","APN","Legal Description","Property Use","Units Count","Bedrooms","Bathrooms","# of Stories","Garage Type","Garage Square Feet","Air Conditioning Type","Heating Type","# of Fireplaces","Owner 1 First Name","Owner 1 Last Name","Owner 2 First Name","Owner 2 Last Name","Owner Mailing Address","Owner Mailing City","Owner Mailing State","Owner Mailing Zip","Ownership Length (Months)","Owner Type","Owner Occupied","Vacant?","Listing Status","Listing Price","Days on Market","Last Updated","Listing Agent Full Name","Listing Agent First Name","Listing Agent Last Name","Listing Agent Email","Listing Agent Phone","Listing Office Phone","MLS Agent Name","MLS Agent Phone","MLS Agent Office","MLS Type","Last Sale Date","Last Sale Amount","Estimated Value","Estimated Equity","Equity Percent","Open Mortgage Balance","Mortgage Interest Rate","Mortgage Document Date","Mortgage Loan Type","Lender Name","Deed Type","Position","Tax Amount","Assessment Year","Assessed Total Value","Assessed Land Value","Assessed Improvement Value","Market Value","Market Land Value","Market Improvement Value","Status","Default Amount","Opening bid","Recording Date","Auction Date" -->
+  <div class="card text-white bg-success mb-3" style="max-width: 20rem;">
+    <div class="card-header">{{ lead.address }}, {{ lead.city }}, {{ lead.county}}, {{ lead.zip }}</div>
+      <div class="card-body">
+        <h4 class="card-title">{{ lead.living_square_feet }}ft²</h4>
+        <p class="card-text">
+          <ul>
+            <li>Year Built: {{ lead.year_built }}</li>
+            <li>Bedrooms: {{ lead.bedrooms }}</li>
+            <li>Bathrooms: {{ lead.bathrooms }}</li>
+            <li>Stories: {{ lead.stories }}</li>
+            <li>Garage: {{ lead.garage_type }}</li>
+            <li>Garage Ft²: {{ lead.garage_square_feet }}</li>
+            <li>Air Conditioning: {{ lead.air_conditioning_type }}</li>
+            <li>Heating: {{ lead.heating_type }}</li>
+            <li>Fireplaces: {{ lead.fireplaces }}</li>
+          </ul>
+        </p>
+      </div>
+  </div>
+
+  <div class="card text-white bg-success mb-3" style="max-width: 20rem;">
+    <div class="card-header">Owner 2</div>
+      <div class="card-body">
+        <h4 class="card-title"></h4>
+        <p class="card-text">tbd</p>
+      </div>
+  </div>
+
+  <table>
+    <tr>
+      <th></th>
+      <th>Owner 1</th>
+      <th>Owner 2</th>
+      <th>Address</th>
+      <th>County</th>
+      <th>Zip</th>
+      <th>Year</th>
+      <th>Price</th>
+      <th>Updated</th>
+    </tr>
+      <tr>
+        <td><a href="/leads/{{ lead.id }}">🔍</a></td>
+        <td>{{ lead.owner_1_first_name }} {{ lead.owner_1_last_name }}</td>
+        <td>{{ lead.owner_2_first_name }} {{ lead.owner_2_last_name }}</td>
+        <td>{{ lead.address }}</td>
+        <td>{{ lead.county }}</td>
+        <td>{{ lead.zip }}</td>
+        <td>{{ lead.year_built }}</td>
+        <td>{{ lead.listing_price }}</td>
+        <td>{{ lead.last_updated }}</td>
+      </tr>
+</table>
+{% endblock %}

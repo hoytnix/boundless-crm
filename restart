@@ -1,0 +1,5 @@
+#!/bin/ash
+pkill flask
+cd /www/zerg.casino
+source venv/bin/activate
+nohup flask --app flaskr run &

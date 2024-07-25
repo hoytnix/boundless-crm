@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}View All Leads{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <table class="table table-hover">
+    <tr>
+      <th></th>
+      <th>Owner 1</th>
+      <th>Owner 2</th>
+      <th>Address</th>
+      <th>County</th>
+      <th>Zip</th>
+      <th>Year</th>
+      <th>Price</th>
+      <th>Updated</th>
+    </tr>
+    {% for lead in leads %}
+      <tr>
+        <td><a href="/leads/{{ lead.id }}">🔍</a></td>
+        <td>{{ lead.owner_1_first_name }} {{ lead.owner_1_last_name }}</td>
+        <td>{{ lead.owner_2_first_name }} {{ lead.owner_2_last_name }}</td>
+        <td>{{ lead.address }}</td>
+        <td>{{ lead.county }}</td>
+        <td>{{ lead.zip }}</td>
+        <td>{{ lead.year_built }}</td>
+        <td>{{ lead.listing_price }}</td>
+        <td>{{ lead.last_updated }}</td>
+      </tr>
+    {% endfor %}
+</table>
+{% endblock %}
