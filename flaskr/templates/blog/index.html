@@ -6,8 +6,11 @@
 
 {% block content %}
   {% if g.user %}
+
     <h2>Coming Soon~</h2>
+
     <p>Soon you'll be able to do things like:</p>
+
     <h3>Lead Management</h3>
     <ul>
       <li>Import a CSV List of Leads</li>
@@ -60,6 +63,7 @@
         <li>Sentiment Analysis</li>
       </ul>
     </ul>
+
     <h3>Mass Communicate</h3>
     <ul>
       <li>Send Email Campaigns</li>
@@ -82,12 +86,15 @@
         </ul>
       </ul>
     </ul>
-    <h3>Collaborate</h3>
+
+    <h3>Team Management</h3>
     <ul>
       <li>Assign leads to team members</li>
       <li>tbd</li>
     </ul>
+
   {% else %}
     <p>You must <a href="{{ url_for('auth.register') }}">Register</a> in order to use <a href="{{ url_for('blog.index') }}">Boundless CRM</a>.</p>
   {% endif %}
+
 {% endblock %}
