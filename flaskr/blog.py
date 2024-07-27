@@ -138,7 +138,7 @@ def leads_index():
         try:
             search_query = int(search_query)
         except:
-            search_query = "'" + search_query + "'"
+            search_query = "'%{}%'".format(search_query)
         sql_query = "WHERE {} {} {}".format(form_data['search_by'], form_data['search_operation'], search_query)
 
     db = get_db()
