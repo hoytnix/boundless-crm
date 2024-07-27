@@ -50,6 +50,8 @@
       <ul>
         <li>Has customer changed their phone number recently?</li>
         <li>Has customer changed their mailing address w/ USPS recently?</li>
+        <li>Is customer in the White Pages?</li>
+        <li>Does customer own other properties?</li>
       </ul> 
       <li>Make Phone Calls</li>
       <ul>
@@ -73,9 +75,17 @@
       </ul>
       <li>EDDM Campaigns</li>
       <ul>
-        <li>Export CSV of leads for Thanks.io</li>
+        <li>Export CSV list of leads for Thanks.io</li>
         <li>Track QR Code Open Rates...</li>
+        <ul>
+          <li>Each postcard gets a unique QR code reference #</li>
+        </ul>
       </ul>
+    </ul>
+    <h3>Collaborate</h3>
+    <ul>
+      <li>Assign leads to team members</li>
+      <li>tbd</li>
     </ul>
   {% else %}
     <p>You must <a href="{{ url_for('auth.register') }}">Register</a> in order to use <a href="{{ url_for('blog.index') }}">Boundless CRM</a>.</p>
