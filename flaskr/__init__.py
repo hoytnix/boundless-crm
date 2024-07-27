@@ -11,6 +11,7 @@ def create_app(test_config=None):
         SECRET_KEY="dev",
         # store the database in the instance folder
         DATABASE=os.path.join(app.instance_path, "flaskr.sqlite"),
+        THEME="zephyr",
     )
 
     if test_config is None:
@@ -31,7 +32,7 @@ def create_app(test_config=None):
 
     @app.route("/hello")
     def hello():
-        return "Hello, World!"
+        return app.config['THEME'] 
 
     # register the database commands
     from flaskr import db

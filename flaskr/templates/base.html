@@ -1,6 +1,6 @@
 <!doctype html>
 <title>{% block title %}{% endblock %} - Boundless CRM</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='themes/' + config.THEME + '.min.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <script src="{{ url_for('static', filename='script.js') }}"></script>
 
