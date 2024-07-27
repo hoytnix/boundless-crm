@@ -3,8 +3,6 @@ Boundless CRM
 
 If (ClickFunnels)[https://clickfunnel.com] & (Hyros)[https://hyros.com] had a baby...
 
-.. _tutorial: https://flask.palletsprojects.com/tutorial/
-
 
 Install
 -------
@@ -14,7 +12,7 @@ you're reading.** You probably want the latest tagged version, but the
 default Git version is the main branch. ::
 
     # clone the repository
-    $ git clone https://github.com/pallets/flask
+    $ git clone https://github.com/hoytnix/boundless-crm
     $ cd flask
     # checkout the correct version
     $ git tag  # shows the tagged versions
@@ -45,8 +43,6 @@ installing Flaskr::
 Run
 ---
 
-.. code-block:: text
-
     $ flask --app flaskr init-db
     $ flask --app flaskr run --debug
 
@@ -56,12 +52,10 @@ Open http://127.0.0.1:5000 in a browser.
 Test
 ----
 
-::
-
     $ pip install '.[test]'
     $ pytest
 
-Run with coverage report::
+Run with coverage report:
 
     $ coverage run -m pytest
     $ coverage report
