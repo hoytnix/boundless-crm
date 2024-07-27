@@ -1,23 +1,23 @@
 {% extends 'base.html' %}
 
+{% set order_by_reverse = "ASC" if order == "DESC" else "DESC" %}
+
 {% block header %}
   <h1>{% block title %}View All Leads{% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
-  <script>console.log(GetURLParameter("eruda"));</script>
-
   <table class="table table-hover">
     <tr>
       <th></th>
-      <th><a href="?sort_by=owner_1_first_name">Owner 1</a></th>
-      <th><a href="?sort_by=owner_2_first_name">Owner 2</a></th>
-      <th><a href="?sort_by=address">Address</a></th>
-      <th><a href="?sort_by=county">County</a></th>
-      <th><a href="?sort_by=zip">Zip</a></th>
-      <th><a href="?sort_by=year_built">Year</a></th>
-      <th><a href="?sort_by=listing_price">Price</a></th>
-      <th><a href="?sort_by=last_updated">Updated</a></th>
+      <th><a href="?sort_by=owner_1_first_name&order={{ order_by_reverse }}">Owner 1</a></th>
+      <th><a href="?sort_by=owner_2_first_name&order={{ order_by_reverse }}">Owner 2</a></th>
+      <th><a href="?sort_by=address&order={{ order_by_reverse }}">Address</a></th>
+      <th><a href="?sort_by=county&order={{ order_by_reverse }}">County</a></th>
+      <th><a href="?sort_by=zip&order={{ order_by_reverse }}">Zip</a></th>
+      <th><a href="?sort_by=year_built&order={{ order_by_reverse }}">Year</a></th>
+      <th><a href="?sort_by=listing_price&order={{ order_by_reverse }}">Price</a></th>
+      <th><a href="?sort_by=last_updated&order={{ order_by_reverse }}">Updated</a></th>
     </tr>
     {% for lead in leads %}
       <tr>

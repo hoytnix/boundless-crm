@@ -129,12 +129,16 @@ def delete(id):
 def leads_index():
     """List view of leads."""
     sort_by = request.args.get('sort_by')
+    order = request.args.get('order', default='ASC')
 
     db = get_db()
     leads = db.execute(
-        "SELECT * FROM leads ORDER BY {} ASC".format(sort_by if sort_by else 'zip')
+        "SELECT * FROM leads ORDER BY {} {}".format( \
+            sort_by if sort_by else 'zip', \
+            order \
+        )
     ).fetchall()
-    return render_template("blog/leads.html", leads=leads) 
+    return render_template("blog/leads.html", leads=leads, sort_by=sort_by, order=order) 
 
 @bp.route("/leads/<int:id>")
 @login_required
