@@ -1,7 +1,7 @@
 Boundless CRM
 =============
 
-If [ClickFunnels](https://clickfunnel.com) & [Hyros](https://hyros.com) had a baby...
+If [ClickFunnels](https://clickfunnel.com) & [Hyros](https://hyros.com) had a baby with [MixMax](http://mixmax.com), [Twilio](https://twilio.com) & [Thanks](https://thanks.io)...
 
 
 Install
