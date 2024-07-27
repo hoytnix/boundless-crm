@@ -59,3 +59,23 @@ Run with coverage report:
     $ coverage run -m pytest
     $ coverage report
     $ coverage html  # open htmlcov/index.html in a browser
+
+
+Collaboration
+-------------
+
+**Boundless CRM is an Alpha application!**
+
+With that being said, thanks for your interest!
+
+You may reach out to Michael Hoyt for questions about collaborating:
+
+    📧: michael [d0t] hoyt [@t] fatfirecake [d0t] com
+    ☎: +1 (989) 217 - HEMP (4367)
+
+### Eruda
+
+Boundless CRM uses [Eruda](https://eruda.liriliri.io/) for debugging. Eruda
+is a mobile browser inspection console. If you are working from a phone
+or tablet instead of a desktop you can reach the console by appending
+`?eruda=true` to the end of any URL.
