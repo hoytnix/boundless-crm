@@ -1,7 +1,7 @@
-Flaskr
-======
+Boundless CRM
+=============
 
-The basic blog app built in the Flask `tutorial`_.
+If [ClickFunnels](https://clickfunnel.com) & [Hyros](https://hyros.com) had a baby...
 
 .. _tutorial: https://flask.palletsprojects.com/tutorial/
 
