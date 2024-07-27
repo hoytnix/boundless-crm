@@ -131,14 +131,9 @@ def leads_index():
     sort_by = request.args.get('sort_by')
 
     db = get_db()
-    if not sort_by:
-        leads = db.execute(
-            "SELECT * FROM leads ORDER BY zip ASC"
-        ).fetchall()
-    else:
-        leads = db.execute(
-            "SELECT * FROM leads ORDER BY {} ASC".format(sort_by)
-        ).fetchall()
+    leads = db.execute(
+        "SELECT * FROM leads ORDER BY {} ASC".format(sort_by if sort_by else 'zip')
+    ).fetchall()
     return render_template("blog/leads.html", leads=leads) 
 
 @bp.route("/leads/<int:id>")

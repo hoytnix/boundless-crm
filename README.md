@@ -74,6 +74,7 @@ You may reach out to Michael Hoyt for questions about collaborating:
     📧: michael [d0t] hoyt [@t] fatfirecake [d0t] com
     ☎: +1 (989) 217 - HEMP (4367)
 
+
 ### Eruda
 
 Boundless CRM uses [Eruda](https://eruda.liriliri.io/) for debugging. Eruda
@@ -89,6 +90,7 @@ up the inspection console.
 
 Happy debugging!~
 
+
 ### PEP 8
 
 Boundless CRM adheres to the principles of style as defined by 
@@ -99,3 +101,5 @@ the version management toolbox and styling will be mostly automated.
 
 In the meantime, please familiarize yourself with PEP 8 and adhere to its
 principles.
+
+
