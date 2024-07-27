@@ -1,7 +1,7 @@
 Boundless CRM
 =============
 
-If [ClickFunnels](https://clickfunnel.com) & [Hyros](https://hyros.com) had a baby...
+If (ClickFunnels)[https://clickfunnel.com] & (Hyros)[https://hyros.com] had a baby...
 
 .. _tutorial: https://flask.palletsprojects.com/tutorial/
 
