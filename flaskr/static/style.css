@@ -1,3 +1,7 @@
 ul li#finished:before {
   content: '✓' !important; 
 }
+
+.content {
+  padding-top: 1.5rem;
+}
