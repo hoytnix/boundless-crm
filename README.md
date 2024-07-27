@@ -1,7 +1,7 @@
 Boundless CRM
 =============
 
-If (ClickFunnels)[https://clickfunnel.com] & (Hyros)[https://hyros.com] had a baby...
+If [ClickFunnels](https://clickfunnel.com) & [Hyros](https://hyros.com) had a baby...
 
 
 Install
@@ -9,7 +9,7 @@ Install
 
 **Be sure to use the same version of the code as the version of the docs
 you're reading.** You probably want the latest tagged version, but the
-default Git version is the main branch. ::
+default Git version is the main branch. :
 
     # clone the repository
     $ git clone https://github.com/hoytnix/boundless-crm
@@ -19,22 +19,22 @@ default Git version is the main branch. ::
     $ git checkout latest-tag-found-above
     $ cd examples/tutorial
 
-Create a virtualenv and activate it::
+Create a virtualenv and activate it:
 
     $ python3 -m venv .venv
     $ . .venv/bin/activate
 
-Or on Windows cmd::
+Or on Windows cmd:
 
     $ py -3 -m venv .venv
     $ .venv\Scripts\activate.bat
 
-Install Flaskr::
+Install Flaskr:
 
     $ pip install -e .
 
 Or if you are using the main branch, install Flask from source before
-installing Flaskr::
+installing Flaskr:
 
     $ pip install -e ../..
     $ pip install -e .
