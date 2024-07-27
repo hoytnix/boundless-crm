@@ -7,6 +7,51 @@
 {% endblock %}
 
 {% block content %}
+
+  <form action="?" method="post" novalidate>
+    <fieldset>
+      <legend>Query Builder</legend>
+      
+      <div class="row">
+        <label for="search_by" class="col-sm-2 col-form-label">Search Column</label>
+        <div class="col-sm-10">
+          <select class="form-select" name="search_by" id="search_by">
+            <option>owner_1_first_name</option>
+            <option>owner_2_first_name</option>
+            <option>owner_1_last_name</option>
+            <option>owner_2_last_name</option>
+            <option>address</option>
+            <option>county</option>
+            <option>zip</option>
+            <option>year_built</option>
+            <option>listing_price</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="row">
+        <label for="" class="col-sm-2 col-form-label">Search Operation</label>
+        <div class="col-sm-10">
+          <select class="form-select" name="search_operation" id="search_operation">
+            <option>LIKE</option>
+            <option><</option>
+            <option>></option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <label for="search_query" class="col-sm-2 col-form-label">Search Query</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control-plaintext" name="search_query" id="search_query" value="lol">
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-success">Search</button>
+
+    </fieldset>
+  </form>
+
   <table class="table table-hover">
     <tr>
       <th></th>

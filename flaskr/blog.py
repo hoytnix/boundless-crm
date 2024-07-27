@@ -124,16 +124,27 @@ def delete(id):
     db.commit()
     return redirect(url_for("blog.index"))
 
-@bp.route("/leads", methods=("GET",))
+@bp.route("/leads", methods=("GET","POST"))
 @login_required
 def leads_index():
     """List view of leads."""
     sort_by = request.args.get('sort_by')
     order = request.args.get('order', default='ASC')
 
+    sql_query = None
+    form_data = request.form
+    if form_data.__len__() > 0:
+        search_query = form_data['search_query']
+        try:
+            search_query = int(search_query)
+        except:
+            search_query = "'" + search_query + "'"
+        sql_query = "WHERE {} {} {}".format(form_data['search_by'], form_data['search_operation'], search_query)
+
     db = get_db()
     leads = db.execute(
-        "SELECT * FROM leads ORDER BY {} {}".format( \
+        "SELECT * FROM leads {} ORDER BY {} {}".format( \
+            "" if not sql_query else sql_query, \
             sort_by if sort_by else 'zip', \
             order \
         )
