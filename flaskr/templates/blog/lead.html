@@ -84,7 +84,22 @@
         <h4 class="card-title"></h4>
         <p class="card-text">
         <ul>
-          <li>Mailing Address: {{ lead.owner_mailing_address }}, {{ lead.owner_mailing_city }}, {{ lead.owner_mailing_zip }}</li>
+          <li><a class="btn btn-primary" style="width:100px" href="#">Postcard</a> {{ lead.owner_mailing_address }}, {{ lead.owner_mailing_city }}, {{ lead.owner_mailing_zip }}</li>
+          <li><a class="btn btn-primary" style="width:100px" href="#">Email</a> {{ lead.email }}</li>
+          <li><a class="btn btn-primary" style="width:100px" href="#">Recorded Call</a> <a class="btn btn-primary" style="width: 100px" href="#">MMS</a> {{ lead.phone }}</a></li>
+        </ul>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm">
+    <div class="card text-white bg-success mb-3" style="max-width: 45vw;">
+      <div class="card-header">Contact Transaction History</div>
+      <div class="card-body">
+        <h4 class="card-title"></h4>
+        <p class="card-text">
+        <ul>
+          <li>Coming Soon!</li>
         </ul>
         </p>
       </div>
