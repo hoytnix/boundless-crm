@@ -1,8 +1,18 @@
 <!doctype html>
 <title>{% block title %}{% endblock %} - Boundless CRM</title>
-<!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> -->
 <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css?v=6') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+<!-- Eruda - Mobile Browser Inspection -->
+<script>
+  ;(function () {
+        var src = '//cdn.jsdelivr.net/npm/eruda';
+        if (!/eruda=true/.test(window.location) && localStorage.getItem('active-eruda') != 'true') return;
+        document.write('<scr' + 'ipt src="' + src + '"></scr' + 'ipt>');
+        document.write('<scr' + 'ipt>eruda.init();</scr' + 'ipt>');
+  })();
+</script>
 
 <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
   <div class="container-fluid">

@@ -20,6 +20,9 @@ def create_app(test_config=None):
         # load the test config if passed in
         app.config.update(test_config)
 
+    # no cacheing files
+    app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+
     # ensure the instance folder exists
     try:
         os.makedirs(app.instance_path)
