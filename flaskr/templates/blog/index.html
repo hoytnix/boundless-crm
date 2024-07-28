@@ -16,14 +16,14 @@
       <li>Import a CSV List of Leads</li>
       <ul>
         <li>Command-line interface</li>
-        <ul>
-          <li>✓ PropWire.com</li>
+        <ul id="todo">
+          <li id="finished">PropWire.com</li>
         </ul>
         <li>Web interface</li>
         <li>Column Mapping</li>
       </ul>
       <li>Sort &amp; Filter Leads</li>
-      <ul>
+      <ul id="todo">
         <li id="finished"><a href="{{ url_for('blog.leads_index') }}">View All Leads</a></li>
         <li id="finished"><a href="/leads/92">View Indvidual Leads</a></li>
         <li id="finished"><a href="/leads?sort_by=listing_price">Sort by column</a></li>
@@ -91,8 +91,13 @@
 
     <h3>Team Management</h3>
     <ul>
+      <li>Group level priveleges</li>
+      <ul>
+        <li>Admin</li>
+        <li>Team Leader</li>
+        <li>Team Member</li>
+      </ul>
       <li>Assign leads to team members</li>
-      <li>tbd</li>
     </ul>
 
   {% else %}

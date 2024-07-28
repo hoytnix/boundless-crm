@@ -1,5 +1,9 @@
-ul li#finished:before {
-  content: '✓' !important; 
+ul#todo {
+  list-style: none;
+}
+
+ul#todo li#finished:before {
+  content: '✓ ' !important; 
 }
 
 .content {
