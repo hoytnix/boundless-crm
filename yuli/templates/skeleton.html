@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"> 
 <head>
-  <title>{% block title %}{% endblock %} - Boundless CRM</title>
+  <title>{% block title %}{% endblock %} - {{ config.PROJ_TITLE }}</title>
     
     <!-- Meta -->
     <meta charset="utf-8">
@@ -177,7 +177,7 @@
 	        <div class="sidepanel-inner d-flex flex-column">
 		        <a href="#" id="sidepanel-close" class="sidepanel-close d-xl-none">&times;</a>
 		        <div class="app-branding">
-              <a class="app-logo" href="index.html"><img class="logo-icon me-2" src="{{ url_for('static', filename="images/app-logo.svg") }}" alt="logo"><span class="logo-text">PORTAL</span></a>
+              <a class="app-logo" href="index.html"><img class="logo-icon me-2" src="{{ url_for('static', filename="images/app-logo.svg") }}" alt="logo"><span class="logo-text">{{ config.PROJ_TITLE }}</span></a>
 	
 		        </div><!--//app-branding-->  
 		        
