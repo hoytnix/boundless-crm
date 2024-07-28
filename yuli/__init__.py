@@ -35,12 +35,12 @@ def create_app(test_config=None):
         return app.config['THEME'] 
 
     # register the database commands
-    from flaskr import db
+    from yuli import db
 
     db.init_app(app)
 
     # apply the blueprints to the app
-    from flaskr import auth, blog
+    from yuli import auth, blog
 
     app.register_blueprint(auth.bp)
     app.register_blueprint(blog.bp)

@@ -1,16 +1,16 @@
 [project]
-name = "flaskr"
-version = "1.0.0"
+name = "yuli"
+version = "0.0.1.1"
 description = "The basic blog app built in the Flask tutorial."
-readme = "README.rst"
+readme = "README.md"
 license = {text = "BSD-3-Clause"}
-maintainers = [{name = "Pallets", email = "contact@palletsprojects.com"}]
+maintainers = [{name = "Michael Hoyt", email = "oloty@pm.me"}]
 dependencies = [
     "flask",
 ]
 
 [project.urls]
-Documentation = "https://flask.palletsprojects.com/tutorial/"
+Documentation = "https://github.org/hoytnix/boundless-crm"
 
 [project.optional-dependencies]
 test = ["pytest"]
@@ -20,7 +20,7 @@ requires = ["flit_core<4"]
 build-backend = "flit_core.buildapi"
 
 [tool.flit.module]
-name = "flaskr"
+name = "yuli"
 
 [tool.flit.sdist]
 include = [
@@ -33,4 +33,4 @@ filterwarnings = ["error"]
 
 [tool.coverage.run]
 branch = true
-source = ["flaskr", "tests"]
+source = ["yuli", "tests"]
