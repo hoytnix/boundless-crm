@@ -10,7 +10,7 @@ dist/
 build/
 *.egg-info/
 .idea/
-venv/
+.venv/
 *.swp
 *~
 nohup.out
