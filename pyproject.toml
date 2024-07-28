@@ -8,7 +8,8 @@ maintainers = [{name = "Michael Hoyt", email = "oloty@pm.me"}]
 dependencies = [
     "flask",
     "pytest",
-    "coverage"
+    "coverage",
+    "flake8"
 ]
 
 [project.urls]

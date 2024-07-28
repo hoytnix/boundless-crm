@@ -16,13 +16,7 @@ bp = Blueprint("blog", __name__)
 @bp.route("/")
 def index():
     """Show all the posts, most recent first."""
-    #db = get_db()
-    #posts = db.execute(
-    #    "SELECT p.id, title, body, created, author_id, username"
-    #    " FROM post p JOIN user u ON p.author_id = u.id"
-    #    " ORDER BY created DESC"
-    #).fetchall()
-    return render_template("blog/index.html")#, posts=posts)
+    return render_template("blog/index.html")
 
 
 def get_post(id, check_author=True):
@@ -102,7 +96,8 @@ def update(id):
         else:
             db = get_db()
             db.execute(
-                "UPDATE post SET title = ?, body = ? WHERE id = ?", (title, body, id)
+                "UPDATE post SET title = ?, body = ? WHERE id = ?",
+                (title, body, id)
             )
             db.commit()
             return redirect(url_for("blog.index"))
@@ -124,7 +119,8 @@ def delete(id):
     db.commit()
     return redirect(url_for("blog.index"))
 
-@bp.route("/leads", methods=("GET","POST"))
+
+@bp.route("/leads", methods=("GET", "POST"))
 @login_required
 def leads_index():
     """List view of leads."""
@@ -137,24 +133,33 @@ def leads_index():
         search_query = form_data['search_query']
         try:
             search_query = int(search_query)
-        except:
+        except ValueError:
             search_query = "'%{}%'".format(search_query)
-        sql_query = "WHERE {} {} {}".format(form_data['search_by'], form_data['search_operation'], search_query)
+        sql_query = "WHERE {} {} {}".format(
+            form_data['search_by'],
+            form_data['search_operation'],
+            search_query
+        )
 
     db = get_db()
     leads = db.execute(
-        "SELECT * FROM leads {} ORDER BY {} {}".format( \
-            "" if not sql_query else sql_query, \
-            sort_by if sort_by else 'zip', \
-            order \
+        "SELECT * FROM leads {} ORDER BY {} {}".format(
+            "" if not sql_query else sql_query,
+            sort_by if sort_by else 'zip',
+            order
         )
     ).fetchall()
-    return render_template("blog/leads.html", leads=leads, sort_by=sort_by, order=order) 
+    return render_template("blog/leads.html",
+                           leads=leads,
+                           sort_by=sort_by,
+                           order=order)
+
 
 @bp.route("/leads/<int:id>")
 @login_required
 def leads_view(id):
     """Singleton view of a lead."""
     db = get_db()
-    lead = db.execute("SELECT * FROM leads WHERE id is {}".format(id)).fetchone()
+    lead = db.execute("SELECT * FROM leads WHERE id is {}".format(id)) \
+        .fetchone()
     return render_template("blog/lead.html", lead=lead)

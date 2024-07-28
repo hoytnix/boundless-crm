@@ -32,7 +32,7 @@ def create_app(test_config=None):
 
     @app.route("/hello")
     def hello():
-        return app.config['THEME'] 
+        return app.config['THEME']
 
     # register the database commands
     from yuli import db

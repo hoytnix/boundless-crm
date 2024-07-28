@@ -13,7 +13,8 @@ def get_db():
     """
     if "db" not in g:
         g.db = sqlite3.connect(
-            current_app.config["DATABASE"], detect_types=sqlite3.PARSE_DECLTYPES
+            current_app.config["DATABASE"],
+            detect_types=sqlite3.PARSE_DECLTYPES
         )
         g.db.row_factory = sqlite3.Row
 
@@ -56,6 +57,7 @@ def init_db():
             print(n)
     """
 
+
 @click.command("import-csv")
 @click.option('-f', '--file', help='Path to CSV to import.')
 def import_csv(file):
@@ -77,11 +79,11 @@ def import_csv(file):
                 try:
                     normalized_column = columns[index].lower() \
                         .replace("# of ", "") \
-                        .replace("(","") \
-                        .replace(")","") \
-                        .replace("?","") \
+                        .replace("(", "") \
+                        .replace(")", "") \
+                        .replace("?", "") \
                         .replace(" ", "_")
-                except:
+                except IndexError:
                     print(index, row_count, row)
                     return
                 new_row += [(normalized_column, column)]
@@ -95,19 +97,17 @@ def import_csv(file):
             cs = cs[:-1]
             vs = vs[:-1]
 
-            new_row_script = "INSERT INTO leads ({c}) VALUES ({v})".format( \
-                c = cs,
-                v = vs
-            )
+            new_row = "INSERT INTO leads ({}) VALUES ({})".format(cs, vs)
             try:
-                db.executescript(new_row_script)
+                db.executescript(new_row)
             except:
                 print("error line {}".format(row_count))
-                print(new_row_script)
+                print(new_row)
                 return
             row_count += 1
     db.commit()
     click.echo("Imported the CSV.")
+
 
 @click.command("init-db")
 def init_db_command():
