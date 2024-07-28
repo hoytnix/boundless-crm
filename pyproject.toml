@@ -7,6 +7,8 @@ license = {text = "BSD-3-Clause"}
 maintainers = [{name = "Michael Hoyt", email = "oloty@pm.me"}]
 dependencies = [
     "flask",
+    "pytest",
+    "coverage"
 ]
 
 [project.urls]
