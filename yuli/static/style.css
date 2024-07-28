@@ -3,7 +3,11 @@ ul#todo {
 }
 
 ul#todo li#finished:before {
-  content: '✓ ' !important; 
+  content: '✓ '; 
+}
+
+ul#todo li#wip:before {
+  content: '❌ ';
 }
 
 .content {

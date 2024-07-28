@@ -1,7 +1,7 @@
 {% extends 'skeleton.html' %}
 
 {% block header %}
-<h1>{% block title %}{% if g.user %}Welcome to Boundless CRM, {{ g.user['username'] }}!{% else %}Hello, World!{% endif %}{% endblock %}</h1>
+<h1 class="app-page-title">{% block title %}{% if g.user %}Welcome to Boundless CRM, {{ g.user['username'] }}!{% else %}Hello, World!{% endif %}{% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
