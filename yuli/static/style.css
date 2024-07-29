@@ -3,6 +3,10 @@ div > ul {
   padding-left: 0;
 }
 
+div > ul > ul {
+  padding-bottom: 1em;
+}
+
 div > ul > li {
   font-size: 125%;
   font-weight: bold;
