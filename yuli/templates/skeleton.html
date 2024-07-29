@@ -19,7 +19,7 @@
     <link id="theme-style" rel="stylesheet" href="{{ url_for('static', filename="css/portal.css") }}">
 
     <!-- <link rel="stylesheet" href="{{ url_for('static', filename='themes/' + config.THEME + '.min.css') }}"> -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v={{ range(1000000,9999999) | random }}">
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </head> 
