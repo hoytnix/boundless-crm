@@ -1,3 +1,18 @@
+div > ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+div > ul > li {
+  font-size: 125%;
+  font-weight: bold;
+}
+
+ul > ul {
+  padding-left: 0.1rem;
+  list-style: none;
+}
+
 ul#todo {
   list-style: none;
 }
