@@ -16,7 +16,7 @@ bp = Blueprint("blog", __name__)
 @bp.route("/")
 def index():
     """Show all the posts, most recent first."""
-    return render_template("blog/index.html")
+    return render_template("portal/dashboard.html")
 
 
 def get_post(id, check_author=True):
