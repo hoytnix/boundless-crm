@@ -13,10 +13,16 @@ from yuli.db import get_db
 bp = Blueprint("blog", __name__)
 
 
+@login_required
 @bp.route("/")
 def index():
     """Show all the posts, most recent first."""
-    return render_template("portal/dashboard.html")
+    db = get_db()
+    note = None
+    if g.user:
+        note = db.execute("SELECT * FROM notes WHERE author_id is {}".format( \
+                g.user['id'])).fetchone()
+    return render_template("portal/dashboard.html", note=note)
 
 
 def get_post(id, check_author=True):
@@ -163,3 +169,39 @@ def leads_view(id):
     lead = db.execute("SELECT * FROM leads WHERE id is {}".format(id)) \
         .fetchone()
     return render_template("blog/lead.html", lead=lead)
+
+
+@bp.route("/edit_notes", methods=("GET", "POST"))
+@login_required
+def edit_notes():
+    """Form to edit a user's personal notes."""
+    db = get_db()
+    note = db.execute("SELECT * FROM notes WHERE author_id is {}".format(g.user['id'])) \
+            .fetchone()
+
+    if request.method == "POST":
+        body = request.form["body"]
+
+        error = False
+        try:
+            if not note.body: #note exists
+                error = True
+        except:
+            error = True
+
+        if not error:
+            db.execute("UPDATE notes SET body = ? WHERE author_id = ?",
+                (body, g.user['id'])
+            )
+            db.commit()
+        else: #note doesn't exist
+            db.execute(
+                "INSERT INTO notes (body, author_id) VALUES (?, ?)",
+                (body, g.user["id"]),
+            )
+            db.commit()
+
+
+        return redirect(url_for('blog.index'))
+
+    return render_template("portal/notes.html", note=note)

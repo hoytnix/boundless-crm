@@ -3,6 +3,8 @@
 
 DROP TABLE IF EXISTS user;
 DROP TABLE IF EXISTS post;
+DROP TABLE IF EXISTS leads;
+DROP TABLE IF EXISTS notes;
 
 CREATE TABLE user (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -95,4 +97,12 @@ CREATE TABLE leads (
   opening_bid TEXT,
   recording_date TEXT,
   auction_date TEXT
+);
+
+
+CREATE TABLE notes (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  author_id INTEGER NOT NULL,
+  body TEXT,
+  FOREIGN KEY (author_id) REFERENCES user (id)
 );
