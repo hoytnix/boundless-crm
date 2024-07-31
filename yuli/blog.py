@@ -182,10 +182,11 @@ def edit_notes():
     if request.method == "POST":
         body = request.form["body"]
 
+        print(note['body'], flush=True)
         error = False
         try:
-            if not note.body: #note exists
-                error = True
+            if note['body']: #note exists
+                error = False
         except:
             error = True
 
@@ -194,6 +195,7 @@ def edit_notes():
                 (body, g.user['id'])
             )
             db.commit()
+            print("lol", flush=True)
         else: #note doesn't exist
             db.execute(
                 "INSERT INTO notes (body, author_id) VALUES (?, ?)",
