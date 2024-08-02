@@ -42,7 +42,8 @@ installing Flaskr:
 Run
 ---
 
-    $ flask --app flaskr init-db
+    $ flask --app yuli init-db
+    $ flask --app yuli import-csv -f /my/path/to/csv
     $ chmod +x restart
     $ ./restart
 
